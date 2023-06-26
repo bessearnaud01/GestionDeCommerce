@@ -1,0 +1,84 @@
+
+{% include 'navbar2.html.twig'%}
+
+{% block body  %}           
+  <div class="row">
+          <div class ="col-2">
+            {% include 'nav.html.twig'%} 
+          </div>
+          <div class="col-9">
+          <div class="container">
+          <div class="card mt-3">
+            <div class ="alert alert-danger d-none"></div>  <!-- d-none rend invisible-->
+            <div class ="alert alert-success d-none"></div>
+              <div class="card-header bg-primary">Ajoutez les information du client</div>
+              <div class="card-body">     
+                <div class="container">
+                <form method="post" action="AjouterClient.php" class= "form">   
+                  <fieldset class="form-group">
+                  <div class="row">
+                  <legend class="col-form-label col-3">Sexe:</legend>
+                    <div class="col-9">
+                      <div class="form-check">
+                      <label class="form-check-label">
+                        <input class="form-check-input" type="radio" name="sexe" value="F">
+                      Femme
+                      </label>
+                    </div>
+                    <div class="form-check">
+                    <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="sexe" value="H" checked>
+                    Homme
+                    </label >
+                    </div>
+                    </div>
+                    </div>
+                  </fieldset>
+                    <div class="form-group row">
+                      <label for="name" class="col-3 col-form-label">Nom :</label>
+                      <div class="col-9">
+                      <input type="text" class="form-control" id="nom" name="nom">
+                      </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="first-name" class="col-3 col-form-label">Prénom :</label>
+                        <div class="col-9">
+                        <input type="text" class="form-control" id="prenom" name="prenom">
+                      </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="phone" class="col-3 col-form-label">Numéro de téléphone :</label>
+                        <div class="col-9">
+                      <input type="number" class="form-control" id="telephone" name="telephone">
+                      </div>
+                      </div>
+                    <div class="form-group row">
+                      <label for="email" class="col-3 col-form-label">Email:</label>
+                      <div class="col-9">
+                    <input type="email" class="form-control" id="email" name="email">
+                    </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="address" class="col-3 col-form-label">Adresse</label>
+                      <div class="col-9">
+                    <input type="address" class="form-control" id="adresse" name="adresse">
+                    </div>
+                    </div>
+                    <div class="form-group row">
+                    <div class="offset-3 col-9">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                  </div>
+              </form>
+            </div>
+            </div>
+          </div>
+        </div>  
+      </div>
+    </div>
+
+{% endblock %} 
+
+
+
+  

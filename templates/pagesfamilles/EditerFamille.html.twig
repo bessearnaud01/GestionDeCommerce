@@ -1,0 +1,34 @@
+
+{% include 'navbar2.html.twig'%}
+
+{% block body  %}           
+  <div class="row">
+    <div class ="col-2">
+      {% include 'nav.html.twig'%} 
+     </div>
+    <div class="col-9">
+      <div class="container">
+       <div class="card mt-3">
+         <div class ="alert alert-danger d-none"></div>  <!-- d-none rend invisible-->
+         <div class ="alert alert-success d-none"></div>
+         <div class="card-header bg-primary">Modifiez la famille du produit</div>
+          <div class="card-body">     
+           <div class="container">
+            <form method="post" action="EditerFamille.php" class= "form">
+                  <input type="hidden" name="idFamille" value="{{famille.idFamille}}"> <!--On elle l'amene dans l'url-->
+                  <input type="text" class="form-control" placeholder="Entrez le nom de la libellé" name="libelle"value="{{famille.libelle}}">   
+                  <button type="submit" class="btn btn-success marge"> <i class="fas fa-save"></i>  Enregistrer    </button>                  
+            </form>
+                </div>
+                </div>
+              </div>
+            </div>  
+           </div>
+         </div>
+  
+
+{% endblock %} 
+
+
+
+  

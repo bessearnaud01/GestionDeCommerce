@@ -1,0 +1,60 @@
+
+{% include 'navbar1.html.twig'%}
+
+
+
+{% block head%}
+      <title>  Register </title>                   
+{% endblock %}          
+               
+
+
+{% block body %}
+
+ <div class ="container">
+    <h3 class="header text-center">  Formulaire d'inscription </h3>
+    <form method="post" class="form" id="regForm">
+        <div class="field">
+            <label class="field-label" for="name">Votre nom</label>
+            <input class="field-input" type="text" name="name" id="name"/>
+        </div>
+          <div class="input-group mb-3 mt-5">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">Votre métier :</label>
+            </div>
+            <select class="custom-select"  type="text"id="job" name="job">
+               
+                <option value="gestionnaireDevente">Gestionnaire de vente</option>
+                <option value="gestionnaireDachat">Gestionnaire d'achat </option>
+                <option value="gestionnaireDeStock">Gestionnaire de stock </option>
+                <option value="magasinier">Magasinier</option>
+            </select>
+            </div>
+        <div class="field">
+            <label class="field-label" for="email">Votre adresse email</label>
+            <input class="field-input" type="email" name="email" id="email"/>
+        </div>
+        <div class="field">
+            <label class="field-label" for="password">Votre mot de passe</label>
+            <input class="field-input" type="password" name="password" id="password"/>
+        </div>   
+        <div class="field">
+            <label class="field-label" for="password">Confirmez votre mot de passe</label>
+            <input class="field-input" type="password" name="password_confirmation" id="password_confirmation"/>
+        </div>  
+       
+
+
+
+    <p class="errors">{% if error is defined %} {{ error }} {% endif %}</p>
+        <button type="submit" name="submit">S'inscrire</button>
+    </form> 
+ </div>
+{% endblock %}    
+
+{% block script %}
+      <script src="js/register.js"></script>
+
+ {% endblock %}
+ 
+

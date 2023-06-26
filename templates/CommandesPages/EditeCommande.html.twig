@@ -1,0 +1,55 @@
+
+{% include 'navbar2.html.twig'%}
+
+{% block body  %}           
+    <div class="row">
+      <div class ="col-2">
+        {% include 'nav.html.twig'%} 
+      </div>
+     <div class="col-9">
+     <div class="container">
+     <div class="card mt-3">
+       <div class ="alert alert-danger d-none"></div>  <!-- d-none rend invisible-->
+     <div class ="alert alert-success d-none"></div>
+          <div class="card-header bg-primary">Modifiez la commande</div>
+            <div class="card-body">
+            <form enctype="multipart/form-data" method="post" action="EditeCommande.php" >
+             <div class="form-group">
+               <input type="hidden" name="idCommande" value="{{commande.idCommande}}"> <!--On elle l'amene dans l'url-->
+              <label for="number">IdProduit:</label> 
+              <input type="number" class="form-control" placeholder=" Entrez l'id du produit" name="idProduit" value="{{commande.idProduit}}">
+             </div>
+              <div class="form-group">
+              <label for="text">Nom du client:</label> 
+              <input type="text" class="form-control" placeholder=" Entrez le nom de la commade" name="nomClient"value="{{commande.nomClient}}">
+             </div>
+             <div class="form-group">
+              <label for="text">Nom du produit:</label> 
+              <input type="text" class="form-control" placeholder=" Entrez le nom de la commade" name="nomProduit"value="{{commande.nomProduit}}">
+             </div>
+            <div class="form-group">
+              <label for="number">La quantité du produit:</label> 
+              <input type="number" class="form-control" placeholder=" Entrez la quantité" name="quantite" value="{{commande.quantite}}">
+            </div>
+             <div class="form-group">
+              <label for="float">Le prix du produit:</label> 
+              <input type="float" class="form-control" placeholder=" Entrez le prix du produit" name="prixUnitaire" value="{{commande.prixUnitaire}}">
+            </div>
+            <div class="form-group">
+              <label for="date">La date de livraison:</label> 
+              <input type="date" class="form-control" name="date"value="{{commande.date}}">
+            </div>
+            <button type="submit"  class="btn btn-primary">Envoyer</button>
+          </form>
+         </div>
+     </div>
+     </div>  
+    </div>
+  </div>
+   
+  
+{% endblock %} 
+
+
+
+  

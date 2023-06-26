@@ -1,0 +1,64 @@
+
+{% include 'navbar2.html.twig'%}
+
+{% block body  %}           
+    <div class="row">
+      <div class ="col-2">
+        {% include 'nav.html.twig'%} 
+        </div>
+            <div class ="col-9">
+            <div class="container mt-3" style="margin-left:50px;">
+            <div class="card">
+            <div class="card-header bg-primary"> Envoyez  un mail </div>
+            <div class="card-body">
+                {% if send == 1   %}  
+                    <div class="alert alert-success" role="alert">
+                 Le mail est envoyé avec succès
+                  </div>
+            {% endif %}
+             <form method="post" action="Mails.php" class= "form">
+             <label for="name" class="form-label">Mail de l'expéditeur:</label>
+                <input type="mail" class="form-control" placeholder="Entrez le mail de l'expéditeur" name="expediteur">  
+            <label for="name" class="form-label">Titre du message :</label>
+                <input type="text" class="form-control" placeholder="Entrez le titre du mail" name="titre">  
+                 <label for="message" class="form-label">Message:</label> 
+                    <div class="form">
+                    <textarea class="form-control" placeholder="Leave a comment here" style="height: 100px" name="message"></textarea>
+                    </div>
+                <button type="submit" class="btn btn-success marge"><i class="fas fa-paper-plane"></i>  Envoyez    </button>                                                                                
+              </form>
+         </div>
+     </div>
+     </div>  
+      </div>
+     </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %} 
+
+
+
+  

@@ -1,0 +1,47 @@
+
+{% include 'navbar2.html.twig'%}
+
+{% block body  %}           
+    <div class="row">
+      <div class ="col-2">
+        {% include 'nav.html.twig'%} 
+      </div>
+     <div class="col-9">
+     <div class="container">
+     <div class="card mt-3">
+          <div class="card-header bg-primary">Modifiez produit </div>
+            <div class="card-body">
+            <form  method="post" enctype="multipart/form-data" action="EditerProduit.php" class= "form">
+            
+             <input type="hidden"  name="idProduit" value="{{produit.idProduit}}"> <!--On elle l'amene dans l'url-->
+              
+             <div class="form-group">
+              <label for="number">N°Famille:</label> 
+              <input type="number" class="form-control" placeholder=" Entrez le N° de la famille" name="idFamille" value="{{produit.idFamille}}">
+             </div>
+              <div class="form-group">
+              <label for="nom">Nom du produit:</label> 
+              <input type="text" class="form-control" placeholder=" Entrez le N° de la famille" name="nomProduit" value="{{produit.nomProduit}}">
+             </div>
+              <div class="form-group">
+              <label for="text">Marque:</label> 
+              <input type="text" class="form-control" placeholder=" Entrez la marque du produit" name="marque" value="{{produit.marque}}">
+             </div>
+            <div class="form-group">
+              <label for="float">Prix d'achat:</label> 
+              <input type="float" class="form-control" placeholder=" Entrez le prix d'achat" name="pa" value="{{produit.pa}}">
+            </div>
+             <div class="form-group">
+              <label for="image">Insérer photo du produit:</label> 
+             <input type="file" name="image" size=50 />
+              </div>
+            <button type="submit" class="btn btn-primary">Envoyer</button>
+          </form>
+         </div>
+     </div>
+     </div>  
+    </div>
+  </div>
+   
+  
+{% endblock %} 

@@ -1,0 +1,83 @@
+
+{% include 'navbar2.html.twig'%}
+
+{% block body  %}           
+    <div class="row">
+      <div class ="col-2">
+       {% include 'nav.html.twig'%} 
+       </div>
+     <div class="col-9">
+     <div class="container " style="margin-left:50px;">
+      <div class="card mt-1">
+      <div class="card-header bg-primary"> Recherche famille</div>
+       <div class="card-body">
+         <form method="get" action="familles.php" class= "form-inline">
+         <input type="text" class="form-control" placeholder="Entrez nom de la famille" name="libelle">
+        &nbsp <input type="submit" class="btn btn-success" value="Recherche......">      
+        &nbsp&nbsp <a href ="AjouteFamille.php"> <i class="fa fa-plus" aria-hidden="true"></i>Ajoutez famille</a>  
+       </form>
+       </div>
+     </div>
+     </div>
+    <div class="container marginbas"style="margin-left:50px;">
+    <div class="card">
+    <div class="card-header bg-primary"> La liste des familles des produits</div> <p>
+        <div class="card-body">
+            <table class="table table-striped container ">
+                <thead>
+                    <tr>
+                        <th scope="col">N°Famille</th>
+                        <th scope="col">Libellé</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="familles">
+                    {% for famille in familles %}
+                        <tr>
+                            <td> {{famille.idFamille}} </td>
+                            <td> {{famille.libelle}} </td>
+                            <td> <a href="EditerFamille.php?&id={{famille.idFamille}}" target="_self"><i class="fas fa-edit"></i></a> &nbsp
+                            <a onclick ="return confirm(' Êtes vous sûr de vouloir supprimer la famille du produit')";
+                             href="SupprimerFamille.php?&id={{famille.idFamille}}" target="_self"><i class="fas fa-trash-alt"></i> </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    </table>
+
+                <input type="button" class="btn btn-success" onclick="window.location.href = 'ImprimerFamille.php';" value="imprimer"/>
+
+                    
+                    <div class="container" style="text-align: center;" >
+                        <button class="btn btn-primary" onclick="firstPage()">|&lt;</button>
+                        <button class="btn" onclick="previous()">  &lt;</button>
+                        <span id="pageInfo"></span>
+                        <button class="btn" onclick="nextPage()">&gt;</button>
+                        <button class="btn btn-primary" onclick="lastPage()">&gt;|</button>
+                    </div>
+                 </div>
+             </div>
+         </div>
+      </div>
+     </div>
+   </div>
+ </div>
+ 
+   
+
+
+{% endblock %} 
+
+  
+{% block script %}
+    <script > 
+    let familles = {{familles|json_encode|raw}};
+    </script>
+      <script src="js/familles.js"></script>
+
+ {% endblock %}
+ 
+
+
+
+  

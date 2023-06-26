@@ -1,0 +1,90 @@
+
+{% include 'navbar2.html.twig'%}
+
+{% block body  %}           
+    <div class="row">
+      <div class ="col-2">
+        {% include 'nav.html.twig'%} 
+     </div>
+     <div class="col-9">
+     <div class="container marginbas"style="margin-left:50px;">
+      <div class="card mt-1 ">
+      <div class="card-header bg-primary"> Recherche fournisseur</div>
+       <div class="card-body">
+         <form method="get" action="fournisseurs.php" class= "form-inline">
+         <input type="text" class="form-control" placeholder="Entrez l'entreprise du fournisseur" name="entreprise">
+        &nbsp <input type="submit" class="btn btn-success" value="Recherche......">      
+        &nbsp&nbsp <a href ="AjouteFournisseur.php"> <i class="fa fa-plus" aria-hidden="true"></i>Ajoute fournisseur</a>
+       </form>
+       </div>
+     </div>
+     </div>
+    <div class="container marginbas"style="margin-left:50px;">
+    <div class="card">
+    <div class="card-header bg-primary"> La liste des fournisseurs</div> <p>
+        <div class="card-body">
+            <table class="table table-striped container ">
+                <thead>
+                    <tr>
+                        <th scope="col">N°Fournisseur</th>
+                         <th scope="col">N°Produit</th>
+                         <th scope="col">Entreprise</th>
+                         <th scope="col">Téléphone</th>
+                          <th scope="col">Email</th>
+                         <th scope="col">Adresse</th>
+                         <th scope="col">Action</th>
+                        
+                    </tr>
+                </thead>
+                <tbody id='fournisseurs'>
+                    {% for fournisseur in fournisseurs %}
+                        <tr>
+                            <td> {{fournisseur.idFournisseur}} </td>
+                            <td> {{fournisseur.idProduit}} </td>
+                            <td> {{fournisseur.entreprise}}</td>
+                            <td> {{fournisseur.telephone}} </td>
+                            <td> {{fournisseur.email}} </td>
+                            <td> {{fournisseur.adresse}} </td>
+                           <td> <a href="EditeFournisseur.php?&id={{fournisseur.idFournisseur}}" target="_self"><i class="fas fa-edit"></i></a> &nbsp
+                            <a onclick ="return confirm(' Êtes vous sûr de vouloir supprimer le fournisseur')";
+                             href="SupprimeFournisseur.php?&id={{fournisseur.idFournisseur}}" target="_self"> <i class="fas fa-trash-alt"></i> </a>
+                            </td>
+                        </tr>
+                            
+                    {% endfor %}
+                 </tbody>
+                </table>
+                  <input type="button" class="btn btn-success" onclick="window.location.href = 'ImprimerFournisseur.php';" value="imprimer"/>
+                 <div class="container" style="text-align: center;" >
+                        <button class="btn btn-primary" onclick="firstPage()">|&lt;</button>
+                        <button class="btn" onclick="previous()">  &lt;</button>
+                        <span id="pageInfo"></span>
+                        <button class="btn" onclick="nextPage()">&gt;</button>
+                        <button class="btn btn-primary" onclick="lastPage()">&gt;|</button>
+                    </div>
+             </div>
+            </div>
+        </div>
+    </div>
+   </div>
+ </div>
+ </div>
+
+
+
+{% endblock %} 
+
+
+
+  
+  
+{% block script %}
+    <script > 
+    let fournisseurs = {{fournisseurs|json_encode|raw}};
+    
+    </script>
+      <script src="js/fournisseurs.js"></script>
+
+
+ {% endblock %}
+ 

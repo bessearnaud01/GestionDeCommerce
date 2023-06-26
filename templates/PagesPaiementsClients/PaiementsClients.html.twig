@@ -1,0 +1,91 @@
+
+{% include 'navbar2.html.twig'%}
+
+{% block body  %}           
+    
+
+    <div class="row">
+      <div class ="col-2">
+        {% include 'nav.html.twig'%} 
+     </div>
+     <div class="col-9">
+     <div class="container marginbas"style="margin-left:50px;">
+      <div class="card mt-1 ">
+      <div class="card-header bg-primary"> Recherche de Paiements des clients</div>
+       <div class="card-body">
+         <form method="get" action="PaiementsClients.php" class= "form-inline">
+         <input type="text" class="form-control" placeholder="Entrez le nom du client" name="nomClient">
+        &nbsp <input type="submit" class="btn btn-success" value="Recherche......">      
+        &nbsp&nbsp <a href ="AjoutezPaiementClient.php"> <i class="fa fa-plus" aria-hidden="true"></i>Ajoutez la paie du client</a>
+       </form>
+       </div>
+     </div>
+     </div>
+    <div class="container marginbas" style="margin-left:50px;">
+    <div class="card">
+    <div class="card-header bg-primary"> La liste des Paiements des clients</div> <p>
+        <div class="card-body">
+            <table class="table table-striped container ">
+                <thead>
+                    <tr>
+                         <th scope="col">N°Paiment</th>
+                          <th scope="col"> Client</th>
+                           <th scope="col">Montant versé</th>
+                            <th scope="col">Solde</th>
+                           <th scope="col">statut du versement</th>
+                         <th scope="col">Date de paie</th>
+                         <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="PaiementsClients">
+                    {% for paieClient in PaiementsClients %}
+                        <tr>   
+                            <td> {{paieClient.idPaieClient}} </td>
+                            <td> {{paieClient.nomClient}}</td>
+                             <td> {{paieClient.montant}} </td>
+                             <td> {{paieClient.montantRester}} </td>
+                             <td> {{paieClient.statut}} </td>
+                            <td> {{paieClient.date}} </td>
+                            <td> <a href="EditePaieClient.php?&id={{paieClient.idPaieClient}}" target="_self"><i class="fas fa-edit"></i></a> &nbsp
+                            <a onclick ="return confirm(' Êtes vous sûr de vouloir supprimer le produit')";
+                             href="supprimePaieClient.php?&id={{paieClient.idPaieClient}}" target="_self"> <i class="fas fa-trash-alt"></i> </a>
+                            </td>
+                        </tr>   
+                    {% endfor %}
+                 </tbody>
+                </table>
+                <input type="button" class="btn btn-success" onclick="window.location.href = 'ImprimePaieClient.php';" value="imprimer"/>
+
+                 <div class="container" style="text-align: center;" >
+                        <button class="btn btn-primary" onclick="firstPage()">|&lt;</button>
+                        <button class="btn" onclick="previous()">  &lt;</button>
+                        <span id="pageInfo"></span>
+                        <button class="btn" onclick="nextPage()">&gt;</button>
+                        <button class="btn btn-primary" onclick="lastPage()">&gt;|</button>
+                    </div>
+             </div>
+            </div>
+        </div>
+    </div>
+   </div>
+ </div>
+ </div>
+
+
+{% endblock %} 
+ 
+
+
+
+    
+{% block script %}
+    <script > 
+   
+    let PaiementsClients = {{PaiementsClients|json_encode|raw}};
+    
+    </script>
+      <script src="js/PaiementsClients.js"></script>
+
+ {% endblock %}
+ 
+ 

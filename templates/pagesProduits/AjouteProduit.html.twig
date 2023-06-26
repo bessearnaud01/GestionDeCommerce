@@ -1,0 +1,50 @@
+
+{% include 'navbar2.html.twig'%}
+
+{% block body  %}           
+    <div class="row">
+      <div class ="col-2">
+        {% include 'nav.html.twig'%} 
+      </div>
+     <div class="col-9">
+     <div class="container">
+     <div class="card mt-3">
+       <div class ="alert alert-danger d-none"></div>  <!-- d-none rend invisible-->
+     <div class ="alert alert-success d-none"></div>
+          <div class="card-header bg-primary">Ajoutez le produit</div>
+            <div class="card-body">
+            <form enctype="multipart/form-data" method="post" action="AjouteProduit.php" >
+             <div class="form-group">
+              <label for="number">N°Famille:</label> 
+              <input type="number" class="form-control" placeholder=" Entrez l'id de la famille" name="idFamille">
+             </div>
+             <div class="form-group">
+              <label for="text">Nom du produit:</label> 
+              <input type="text" class="form-control" placeholder=" Entrez le nom du produit" name="nomProduit">
+             </div>
+              <div class="form-group">
+              <label for="text">Marque:</label> 
+              <input type="text" class="form-control" placeholder=" Entrez la marque du produit" name="marque">
+             </div>
+            <div class="form-group">
+              <label for="float">Prix d'achat:</label> 
+              <input type="float" class="form-control" placeholder=" Entrez le prix d'achat" name="pa">
+            </div>
+             <div class="form-group">
+              <label for="image">Insérer photo du produit:</label> 
+             <input type="file" name="image" size=50 />
+              </div>
+            <button type="submit"  class="btn btn-primary">Envoyer</button>
+          </form>
+         </div>
+     </div>
+     </div>  
+    </div>
+  </div>
+   
+  
+{% endblock %} 
+
+
+
+  

@@ -1,0 +1,54 @@
+
+{% include 'navbar2.html.twig'%}
+
+{% block head %}
+      <title>  Home </title>                   
+{% endblock %}    
+
+{% block body  %}
+                
+<div class="row">
+ <div class ="col-2">
+       {% include 'nav.html.twig'%} 
+  </div>
+    <div class="col-10 mt-5">
+       <div class="container"> 
+     <div class="card mr-5">
+       <div class="card-body bg-light ">
+            <div class="row">
+                  <div class="col-sm text-center"><i class="fas fa-users fa-7x"></i> </i></div> 
+                  <div class="col-sm  text-center"><i class="fas fa-shopping-cart fa-7x"></i></div>
+                   <div class="col-sm  text-center"><i class="fas fa-desktop fa-7x"></i></div>
+                    <div class="col-sm  text-center"><i class="fas fa-male fa-7x"></i> </div>
+            </div>
+            <div class="row">
+                  <div class="col-sm text-center"> <span class="badge text-light bg-primary"> Familles : {{nombreFamille}} </span></div> 
+                  <div class="col-sm text-center"> <span class="badge text-light bg-primary"> Commandes : {{nombreCommande}} </span></div>
+                   <div class="col-sm text-center"> <span class="badge text-light bg-primary"> Produits : {{nombreProduit}} </span></div> 
+                  <div class="col-sm text-center"> <span class="badge text-light bg-primary"> Clients : {{nombreClient}} </span></div>
+            </div>
+             <div class="row mt-4">
+                  <div class="col-sm text-center"> <i class="fas fa-truck  fa-7x"></i></div> 
+                  <div class="col-sm  text-center"><i class="fas fa-dolly fa-7x"></i>  </div>
+                   <div class="col-sm  text-center"><i class="fas fa-file-invoice  fa-7x"></i></div>
+                    <div class="col-sm  text-center"><i class="fas fa-money-bill-wave fa-7x"></i></div>
+            </div>
+            <div class="row">
+                  <div class="col-sm text-center"> <span class="badge text-light bg-primary"> Fournisseurs : {{nombreFournisseur}}  </span></div> 
+                  <div class="col-sm text-center"> <span class="badge text-light bg-primary"> Stocks : {{stockesEntrees}} entrées & {{stocksSortie}} sorties </span></div>
+                   <div class="col-sm text-center"> <span class="badge text-light bg-primary"> Factures :{{nombreFamille}} </span></div> 
+                  <div class="col-sm text-center"> <span class="badge text-light bg-primary"> Paies : {{nombrePaieClient}} clients &  {{nombrePaieFournisseur}}  fournisseurs </span></div>
+            </div>
+         </div>
+       </div>
+       </div>
+   </div>
+ </div>
+
+
+
+
+
+
+{% endblock %}          
+                

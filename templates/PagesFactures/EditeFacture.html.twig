@@ -1,0 +1,54 @@
+
+{% include 'navbar2.html.twig'%}
+
+{% block body  %}           
+    <div class="row">
+      <div class ="col-2">
+        {% include 'nav.html.twig'%} 
+      </div>
+     <div class="col-9">
+     <div class="container">
+     <div class="card mt-3">
+          <div class="card-header bg-primary">Modifié la facture du client</div>
+            <div class="card-body">
+            <form method="post" action="EditeFacture.php" >
+              <input type="hidden"  name="idFacture" value="{{facture.idFacture}}">
+               <div class="form-group">
+              <label for="text">le nom du client:</label> 
+              <input type="text" class="form-control" placeholder=" Entrez le nom du client" name="nomClient"  value="{{facture.nomClient}}">
+            </div> <!--On elle l'amene dans l'url-->
+              <div class="form-group">
+              <label for="text">Libellé:</label> 
+              <input type="text" class="form-control" placeholder=" Entrez le libellé" name="libelle"  value="{{facture.libelle}}">
+             </div>
+              <div class="form-group">
+              <label for="text">Nom du produit:</label> 
+              <input type="text" class="form-control" placeholder=" Entrez le nom du produit" name="nomProduit"  value="{{facture.nomProduit}}">
+             </div>
+              <div class="form-group">
+              <label for="float">Le prix unitaire:</label> 
+              <input type="float" class="form-control" placeholder=" Entrez le prix du produit" name="prixUnitaire"  value="{{facture.prixUnitaire}}">
+            </div>
+            <div class="form-group">
+              <label for="number">La quantité:</label> 
+              <input type="number" class="form-control" placeholder=" Entrez la quantité" name="quantite"  value="{{facture.quantite}}">
+            </div>
+            
+            <div class="form-group">
+              <label for="date">La date de réception:</label> 
+              <input type="date" class="form-control" name="date"  value="{{facture.date}}">
+            </div>
+            <button type="submit"  class="btn btn-primary">Envoyer</button>
+          </form>
+         </div>
+     </div>
+     </div>  
+    </div>
+  </div>
+   
+  
+{% endblock %} 
+
+
+
+  

@@ -1,0 +1,53 @@
+
+{% include 'navbar2.html.twig'%}
+
+{% block body  %}           
+    <div class="row">
+      <div class ="col-2">
+        {% include 'nav.html.twig'%} 
+        </div>
+         <div class ="col-9">
+          <div class="container mt-3">
+          <div class="card">
+          <div class="card-header bg-primary">Ajoutez famille</div>
+         <div class="card-body">
+             <form method="post" action="AjouteFamille.php" class= "form">
+              Libellé:
+                <input type="text" class="form-control" placeholder="Entrez la famille du produit" name="libelle">   
+                <button type="submit" class="btn btn-success marge"><i class="fas fa-save"></i>  Enregistrer    </button>                                                                                
+              </form>
+         </div>
+     </div>
+     </div>  
+      </div>
+     </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %} 
+
+
+
+  

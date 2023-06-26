@@ -1,0 +1,25 @@
+.marginbas{
+          margin-top:5px;
+          margin-left:10025px;
+}
+.marge {
+          margin-top: 5px;
+}
+.image {
+    background-size: cover;
+    width: 50px;
+    height: 20px;
+    }
+
+
+
+    
+.image img {
+    display: none;
+    }
+
+
+    .marge1{
+             margin-top: 5px;
+             margin-left: 500px;
+    }

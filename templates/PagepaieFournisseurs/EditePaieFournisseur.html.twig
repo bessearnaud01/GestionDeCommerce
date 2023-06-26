@@ -1,0 +1,61 @@
+
+{% include 'navbar2.html.twig'%}
+
+{% block body  %}           
+    <div class="row">
+      <div class ="col-2">
+        {% include 'nav.html.twig'%} 
+      </div>
+     <div class="col-9">
+     <div class="container">
+     <div class="card mt-3">
+          <div class="card-header bg-primary">Ajoutez paiement du fournisseur</div>
+            <div class="card-body">
+            <form method="post" action="EditePaieFournisseur.php" >
+             <input type="hidden"  name="idPaieFournisseur" value="{{paieFournisseur.idPaieFournisseur}}">     
+              <div class="form-group">
+              <label for="text">Nom du fournisseur:</label> 
+              <input type="text" class="form-control" placeholder=" Entrez le nom du fournisseur" name="nomFournisseur"value="{{paieFournisseur.nomFournisseur}}" >
+             </div>
+               <div class="form-group">
+              <label for="float">Montant versé :</label> 
+              <input type="float" class="form-control" placeholder=" Entrez le montant versé" name="montant" value="{{paieFournisseur.montant}}"  >
+            </div>
+
+           <div class="form-group">
+              <label for="float">Montant à payer:</label> 
+              <input type="float" class="form-control" placeholder=" Entrez le montant versé" name="montantRester" value="{{paieFournisseur.montantRester}}"  >
+            </div>
+
+
+              
+               <div class="form-group">
+              <label for="text">Statut :</label> 
+              <input type="text" class="form-control" placeholder=" Entrez le statut" name="statut"value="{{paieFournisseur.statut}}" >
+             </div>
+             
+            <div class="form-group">
+              <label for="date">La date de réception:</label> 
+              <input type="date" class="form-control" name="date"value="{{paieFournisseur.date}}" >
+            </div>
+            <button type="submit"  class="btn btn-primary">Envoyer</button>
+          </form>
+         </div>
+     </div>
+     </div>  
+    </div>
+  </div>
+   
+
+
+
+
+
+
+
+  
+{% endblock %} 
+
+
+
+  

@@ -1,0 +1,49 @@
+
+{% include 'navbar2.html.twig'%}
+
+{% block body  %}           
+    <div class="row">
+      <div class ="col-2">
+        {% include 'nav.html.twig'%} 
+      </div>
+     <div class="col-9">
+     <div class="container">
+     <div class="card mt-3">
+          <div class="card-header bg-primary">Ajoutez l'entrée du stocke</div>
+            <div class="card-body">
+            <form method="post" action="EditeStockeEntre.php" >
+              <input type="hidden"  name="idStocke" value="{{stocke.idStocke}}">
+               <div class="form-group">
+              <label for="number">N°Fournisseur:</label> 
+              <input type="number" class="form-control" placeholder=" Entrez le prix du produit" name="idFournisseur"  value="{{stocke.idFournisseur}}">
+            </div> <!--On elle l'amene dans l'url-->
+              <div class="form-group">
+              <label for="text">Libellé:</label> 
+              <input type="text" class="form-control" placeholder=" Entrez le libellé" name="libelle"  value="{{stocke.libelle}}">
+             </div>
+              <div class="form-group">
+              <label for="float">Le prix unitaire:</label> 
+              <input type="float" class="form-control" placeholder=" Entrez le prix du produit" name="prixUnitaire"  value="{{stocke.prixUnitaire}}">
+            </div>
+            <div class="form-group">
+              <label for="number">Le nombre de stocke:</label> 
+              <input type="number" class="form-control" placeholder=" Entrez la quantité" name="quantite"  value="{{stocke.quantite}}">
+            </div>
+            <div class="form-group">
+              <label for="date">La date de réception:</label> 
+              <input type="date" class="form-control" name="date"  value="{{stocke.date}}">
+            </div>
+            <button type="submit"  class="btn btn-primary">Envoyer</button>
+          </form>
+         </div>
+     </div>
+     </div>  
+    </div>
+  </div>
+   
+  
+{% endblock %} 
+
+
+
+  

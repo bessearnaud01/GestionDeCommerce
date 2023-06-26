@@ -1,0 +1,89 @@
+
+{% include 'navbar2.html.twig'%}
+
+{% block body  %}           
+    <div class="row">
+      <div class ="col-2">
+        {% include 'nav.html.twig'%} 
+     </div>
+     <div class="col-9">
+     <div class="container marginbas"style="margin-left:50px;">
+       <div class="card mt-1 ">
+      <div class="card-header bg-primary">   Recherche de client</div>
+       <div class="card-body">
+         <form method="get" action="clients.php" class= "form-inline">
+         <input type="text" class="form-control" placeholder="Entrez le nom du client" name="nom">
+        &nbsp <input type="submit" class="btn btn-success" value="Recherche......">      
+        &nbsp&nbsp <a href ="AjouterClient.php"> <i class="fa fa-plus" aria-hidden="true"></i>Ajoute client</a>
+       </form>
+       </div>
+     </div>
+     </div>
+    <div class="container marginbas"style="margin-left:50px;">
+    <div class="card">
+    <div class="card-header bg-primary"> La liste des clients</div> <p>
+        <div class="card-body">
+            <table class="table table-striped container ">
+                <thead>
+                    <tr>
+                         <th scope="col">N°Client</th>
+                         <th scope="col">Sexe</th>
+                         <th scope="col">Nom</th>
+                         <th scope="col">Prénom</th>
+                         <th scope="col">Téléphone</th>
+                         <th scope="col">Email</th>
+                         <th scope="col">Adresse</th>
+                         <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="clients">
+                    {% for client in clients %}
+                        <tr>
+                            <td> {{client.idClient}}</td>
+                            <td> {{client.sexe}} </td>
+                            <td> {{client.nom}}</td>
+                            <td> {{client.prenom}} </td>
+                            <td> {{client.telephone}} </td>
+                            <td> {{client.email}} </td>
+                            <td> {{client.adresse}} </td>
+                           <td> <a href="EditerClient.php?&id={{client.idClient}}" target="_self"><i class="fas fa-edit"></i></a> &nbsp
+                            <a onclick ="return confirm(' Êtes vous sûr de vouloir supprimer la famille du produit')";
+                             href="SupprimerClient.php?&id={{client.idClient}}" target="_self"><i class="fas fa-trash-alt"></i> </a>
+                        </tr>
+                    {% endfor %}
+                 </tbody>
+                </table>
+                <input type="button" class="btn btn-success" onclick="window.location.href = 'ImprimerClient.php';" value="imprimer"/>
+
+                 <div class="container" style="text-align: center;" >
+                        <button class="btn btn-primary" onclick="firstPage()">|&lt;</button>
+                        <button class="btn" onclick="previous()">  &lt;</button>
+                        <span id="pageInfo"></span>
+                        <button class="btn" onclick="nextPage()">&gt;</button>
+                        <button class="btn btn-primary" onclick="lastPage()">&gt;|</button>
+                    </div>
+             </div>
+            </div>
+        </div>
+    </div>
+   </div>
+ </div>
+ </div>
+
+
+
+{% endblock %} 
+
+
+
+    
+{% block script %}
+   <script > 
+    let clients = {{clients|json_encode|raw}};
+    
+    </script>
+      <script src="js/clients.js"></script>
+
+ {% endblock %}
+ 
+ 

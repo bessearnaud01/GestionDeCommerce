@@ -1,0 +1,9 @@
+{
+    "require": {
+        "twig/twig": "^3.1",
+        "tecnickcom/tc-lib-pdf": "dev-main",
+        "tecnickcom/tcpdf": "^6.3",
+        "symfony/mailer": "^5.2",
+        "swiftmailer/swiftmailer": "^6.2"
+    }
+}

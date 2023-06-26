@@ -1,0 +1,36 @@
+
+{% include 'navbar1.html.twig'%}
+
+
+
+{% block head%}
+      <title>  Login</title>                   
+{% endblock %}          
+
+{% block body %}
+            
+        <div class ="container">
+            <h3 class="header text-center"> Se connecter</h3>
+            <form method="post" class="form" id="regForm">
+                <div class="field">
+                    <label class="field-label" for="email">Votre adresse email</label>
+                    <input class="field-input" type="email" name="email" id="email"/>
+                </div>
+                <div class="field">
+                    <label class="field-label" for="password">Votre mot de passe</label>
+                    <input class="field-input" type="password" name="password" id="password"/>
+                </div>           
+                    <p class="errors">{% if error_user_not_found is defined %} {{ error_user_not_found }} {% endif %}</p>
+                <button type="submit" name="submit">S'inscrire</button>
+            </form> 
+        </div>
+{% endblock %}    
+      
+{% block script %}
+      <script src="js/login.js"></script>
+
+ {% endblock %}
+ 
+
+
+

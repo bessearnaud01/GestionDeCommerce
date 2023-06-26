@@ -1,0 +1,59 @@
+
+{% include 'navbar2.html.twig'%}
+
+{% block body  %}           
+    <div class="row">
+      <div class ="col-2">
+        {% include 'nav.html.twig'%} 
+      </div>
+     <div class="col-9">
+     <div class="container"> 
+     <div class="card mt-3">
+          <div class="card-header bg-primary">Ajoutez paiement client</div>
+            <div class="card-body">
+            <form method="post" action="EditePaieClient.php" >
+            <input type="hidden"  name="idPaieClient" value="{{paieClient.idPaieClient}}">
+              <div class="form-group">
+              <label for="text">Nom du client :</label> 
+              <input type="text" class="form-control" placeholder=" Entrez le nom du client" name="nomClient" value="{{paieClient.nomClient}}" >
+             </div>
+              <div class="form-group">
+              <label for="float">Montant versé :</label> 
+              <input type="float" class="form-control" placeholder=" Entrez le montant versé" name="montant"value="{{paieClient.montant}}">
+             </div>
+
+              <div class="form-group">
+              <label for="float">Montant à payer :</label> 
+              <input type="float" class="form-control" placeholder=" Entrez le montant à payer" name="montantRester"value="{{paieClient.montantRester}}">
+             </div>
+              
+               <div class="form-group">
+              <label for="text">Statut :</label> 
+              <input type="text" class="form-control" placeholder=" Entrez le statut" name="statut"value="{{paieClient.statut}}">
+             </div>
+             
+            <div class="form-group">
+              <label for="date">La date de réception:</label> 
+              <input type="date" class="form-control" name="date"value="{{paieClient.date}}">
+            </div>
+            <button type="submit"  class="btn btn-primary">Envoyer</button>
+          </form>
+         </div>
+     </div>
+     </div>  
+    </div>
+  </div>
+   
+
+
+
+
+
+
+
+  
+{% endblock %} 
+
+
+
+  
